@@ -75,7 +75,7 @@ namespace BookstoreManagement.Api.Controllers
         }
 
         [HttpPost]
-        public override IActionResult Post(RequestBook entity)
+        public  IActionResult Post(RequestBook entity)
         {
             var newBook = new ResponseBook()
             {
@@ -92,7 +92,7 @@ namespace BookstoreManagement.Api.Controllers
         }
 
         [HttpPut]
-        public override IActionResult Put([FromHeader] Guid id, RequestBook entity)
+        public IActionResult Put([FromHeader] Guid id, RequestBook entity)
         {
             var list = new List<ResponseBook>()
             {

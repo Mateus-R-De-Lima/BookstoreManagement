@@ -11,11 +11,8 @@ namespace BookstoreManagement.Api.Controllers
 
         public abstract IActionResult GetAll();
 
-        public abstract IActionResult Get(Guid id);
-
-        public abstract IActionResult Post(RequestBook entity);
-        public abstract IActionResult Put(Guid id, RequestBook entity);
-
+        public abstract IActionResult Get(Guid id);      
+       
         public abstract IActionResult Delete(Guid id);
 
 
