@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{4E8845D5-DDD7-48D6-8D23-AEBC69636354}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookstoreManagement.Api", "BookstoreManagement.Api\BookstoreManagement.Api.csproj", "{79D8885D-E874-48C4-87EB-DE8861630010}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EADB1104-9EAD-4B03-B7EC-CBBD316C6B95} = {EADB1104-9EAD-4B03-B7EC-CBBD316C6B95}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Communication", "Communication", "{A4E1708F-071F-41CA-9F68-8F87DFEEE088}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookstoreManagement.Communication", "BookstoreManagement.Communication\BookstoreManagement.Communication.csproj", "{EADB1104-9EAD-4B03-B7EC-CBBD316C6B95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79D8885D-E874-48C4-87EB-DE8861630010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79D8885D-E874-48C4-87EB-DE8861630010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79D8885D-E874-48C4-87EB-DE8861630010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79D8885D-E874-48C4-87EB-DE8861630010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EADB1104-9EAD-4B03-B7EC-CBBD316C6B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EADB1104-9EAD-4B03-B7EC-CBBD316C6B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EADB1104-9EAD-4B03-B7EC-CBBD316C6B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EADB1104-9EAD-4B03-B7EC-CBBD316C6B95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{79D8885D-E874-48C4-87EB-DE8861630010} = {4E8845D5-DDD7-48D6-8D23-AEBC69636354}
+		{EADB1104-9EAD-4B03-B7EC-CBBD316C6B95} = {A4E1708F-071F-41CA-9F68-8F87DFEEE088}
+	EndGlobalSection
+EndGlobal
