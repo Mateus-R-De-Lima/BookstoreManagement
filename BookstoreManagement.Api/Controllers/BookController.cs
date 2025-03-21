@@ -1,7 +1,14 @@
-﻿using BookstoreManagement.Communication.Requests;
+﻿using BookstoreManagement.Application.UseCases.Books.Delete;
+using BookstoreManagement.Application.UseCases.Books.GetAll;
+using BookstoreManagement.Application.UseCases.Books.GetById;
+using BookstoreManagement.Application.UseCases.Books.Register;
+using BookstoreManagement.Application.UseCases.Books.Update;
+using BookstoreManagement.Communication.Requests;
 using BookstoreManagement.Communication.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Security.Principal;
 
 namespace BookstoreManagement.Api.Controllers
 {
@@ -11,63 +18,30 @@ namespace BookstoreManagement.Api.Controllers
     {
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(List<ResponseBook>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ResponseErros), StatusCodes.Status400BadRequest)]
         public override IActionResult GetAll()
         {
-            var list = new List<ResponseBook>()
+            var useCase = new GetAllBooksUseCases();
+            var response = useCase.Execute();
+            if (response.Books.Any())
             {
-                new ResponseBook()
-                {
-                    Id = Guid.NewGuid(),
-                    Title = "Livro 1",
-                    Amount = 10,
-                    Gender = "Action",
-                    Price = 10,
-                },
-                  new ResponseBook()
-                {
-                    Id = Guid.NewGuid(),
-                    Title = "Livro 2",
-                    Amount = 1,
-                    Gender = "fiction",
-                    Price = 100,
-                },
+                return Ok(response);
+            }
 
-
-            };
-
-            return Ok(list);
+            return NoContent();
 
 
         }
 
         [HttpGet("{id}")]
+
         public override IActionResult Get(Guid id)
         {
-            var list = new List<ResponseBook>()
-            {
-                new ResponseBook()
-                {
-                    Id = Guid.Parse("fe4fa59a-913a-4f18-be73-139ffd0fdb1f"),
-                    Title = "Livro 1",
-                    Amount = 10,
-                    Gender = "Action",
-                    Price = 10,
-                },
-                  new ResponseBook()
-                {
-                    Id = Guid.Parse("d2dc1c07-3d1e-4d45-9399-846891df63fa"),
-                    Title = "Livro 2",
-                    Amount = 1,
-                    Gender = "fiction",
-                    Price = 100,
-                },
+            var useCase = new GetBookUseCase();
 
-
-            };
-
-            var response = list.FirstOrDefault(book => book.Id == id);
+            var response = useCase.Execute(id);
 
             if (response is null) return NotFound("Book not found!");
 
@@ -75,18 +49,15 @@ namespace BookstoreManagement.Api.Controllers
         }
 
         [HttpPost]
-        public  IActionResult Post(RequestBook entity)
+        [ProducesResponseType(typeof(List<ResponseBook>), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ResponseErros), StatusCodes.Status400BadRequest)]
+        public IActionResult Post(RequestBook entity)
         {
-            var newBook = new ResponseBook()
-            {
-                Id = Guid.NewGuid(),
-                Amount = entity.Amount,
-                Gender = entity.Gender,
-                Price = entity.Price,
-                Title = entity.Title,
-            };
+            var useCase = new RegisterBookUseCase();
 
-            return NoContent();
+            var response = useCase.Execute(entity);
+
+            return Created("", response);
 
 
         }
@@ -94,30 +65,9 @@ namespace BookstoreManagement.Api.Controllers
         [HttpPut]
         public IActionResult Put([FromHeader] Guid id, RequestBook entity)
         {
-            var list = new List<ResponseBook>()
-            {
-                new ResponseBook()
-                {
-                    Id = Guid.Parse("fe4fa59a-913a-4f18-be73-139ffd0fdb1f"),
-                    Title = "Livro 1",
-                    Amount = 10,
-                    Gender = "Action",
-                    Price = 10,
-                },
-                  new ResponseBook()
-                {
-                    Id = Guid.Parse("d2dc1c07-3d1e-4d45-9399-846891df63fa"),
-                    Title = "Livro 2",
-                    Amount = 1,
-                    Gender = "fiction",
-                    Price = 100,
-                },
+            var useCase = new UpdateBookUseCase();
 
-
-            };
-
-            var response = list.FirstOrDefault(book => book.Id == id);
-
+            var response = useCase.Execute(id, entity);
 
             if (response is null) return NotFound("Book not found!");
 
@@ -129,33 +79,9 @@ namespace BookstoreManagement.Api.Controllers
         [HttpDelete("{id}")]
         public override IActionResult Delete(Guid id)
         {
-            var list = new List<ResponseBook>()
-            {
-                new ResponseBook()
-                {
-                    Id = Guid.Parse("fe4fa59a-913a-4f18-be73-139ffd0fdb1f"),
-                    Title = "Livro 1",
-                    Amount = 10,
-                    Gender = "Action",
-                    Price = 10,
-                },
-                  new ResponseBook()
-                {
-                    Id = Guid.Parse("d2dc1c07-3d1e-4d45-9399-846891df63fa"),
-                    Title = "Livro 2",
-                    Amount = 1,
-                    Gender = "fiction",
-                    Price = 100,
-                },
-
-
-            };
-
-            var response = list.FirstOrDefault(book => book.Id == id);
-            if (response is null) return NotFound("Book not found!");
-
-            list.Remove(response);
-
+            var useCase = new DeleteBookUseCase();
+            var response = useCase.Execute(id);
+            if (!response) return NotFound("Book not found!");
             return NoContent();
         }
 
