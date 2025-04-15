@@ -1,4 +1,5 @@
-﻿using BookstoreManagement.Communication.Responses;
+﻿using BookstoreManagement.Communication.Enums;
+using BookstoreManagement.Communication.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace BookstoreManagement.Application.UseCases.Books.GetAll
                        Id = Guid.NewGuid(),
                        Title = "Testes",
                        Price = 10,
-                       Gender = "Testes Gender",
+                       Gender = GenderTypes.Western,
                        Amount = 1,
 
                    },
@@ -32,7 +33,7 @@ namespace BookstoreManagement.Application.UseCases.Books.GetAll
                         Id = Guid.NewGuid(),
                         Title = "Livro 1",
                         Amount = 10,
-                        Gender = "Action",
+                        Gender = GenderTypes.Western,
                         Price = 10,
                       },
                    new ResponseBook
@@ -40,7 +41,7 @@ namespace BookstoreManagement.Application.UseCases.Books.GetAll
                         Id = Guid.NewGuid(),
                         Title = "Livro 2",
                         Amount = 1,
-                        Gender = "fiction",
+                        Gender = GenderTypes.Western,
                         Price = 100,
                     }
                 }

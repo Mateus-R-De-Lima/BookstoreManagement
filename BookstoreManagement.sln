@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookstoreManagement.Application", "BookstoreManagement.Application\BookstoreManagement.Application.csproj", "{882169D7-DCB2-4ED1-876A-7AC09B43AA17}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exception", "Exception", "{6AFA5B39-BECE-4CD6-A7A3-6F4BA1BAC699}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookstoreManagement.Execption", "BookstoreManagement.Execption\BookstoreManagement.Execption.csproj", "{2E9B2838-2A94-4D21-9401-2ED5BDF8644F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,10 @@ Global
 		{882169D7-DCB2-4ED1-876A-7AC09B43AA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{882169D7-DCB2-4ED1-876A-7AC09B43AA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{882169D7-DCB2-4ED1-876A-7AC09B43AA17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9B2838-2A94-4D21-9401-2ED5BDF8644F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E9B2838-2A94-4D21-9401-2ED5BDF8644F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E9B2838-2A94-4D21-9401-2ED5BDF8644F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E9B2838-2A94-4D21-9401-2ED5BDF8644F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +52,6 @@ Global
 		{79D8885D-E874-48C4-87EB-DE8861630010} = {4E8845D5-DDD7-48D6-8D23-AEBC69636354}
 		{EADB1104-9EAD-4B03-B7EC-CBBD316C6B95} = {A4E1708F-071F-41CA-9F68-8F87DFEEE088}
 		{882169D7-DCB2-4ED1-876A-7AC09B43AA17} = {B19F9EF4-A608-4685-9CB7-F298CC714CE7}
+		{2E9B2838-2A94-4D21-9401-2ED5BDF8644F} = {6AFA5B39-BECE-4CD6-A7A3-6F4BA1BAC699}
 	EndGlobalSection
 EndGlobal

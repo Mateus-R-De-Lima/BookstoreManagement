@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BookstoreManagement.Communication\BookstoreManagement.Communication.csproj" />
+    <ProjectReference Include="..\BookstoreManagement.Execption\BookstoreManagement.Execption.csproj" />
   </ItemGroup>
 
 </Project>

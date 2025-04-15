@@ -8,6 +8,16 @@ namespace BookstoreManagement.Communication.Responses
 {
     public class ResponseErros
     {
-        public List<String> Erros { get; set; } = [];
+        public List<String> ErrorMessages { get; set; } = [];
+
+        public ResponseErros(string error)
+        {
+            ErrorMessages = [error];
+        }
+
+        public ResponseErros(List<string> errorMessages)
+        {
+            ErrorMessages = errorMessages;
+        }
     }
 }

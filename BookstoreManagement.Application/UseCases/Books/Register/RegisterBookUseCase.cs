@@ -1,5 +1,6 @@
 ﻿using BookstoreManagement.Communication.Requests;
 using BookstoreManagement.Communication.Responses;
+using BookstoreManagement.Execption.ExceptionsBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace BookstoreManagement.Application.UseCases.Books.Register
      /// <returns></returns>
         public ResponseBook Execute(RequestBook request)
         {
+            Validate(request);
 
             return new ResponseBook()
             {
@@ -25,8 +27,19 @@ namespace BookstoreManagement.Application.UseCases.Books.Register
                 Title = request.Title,
                 Id = Guid.NewGuid()
             };
+        }
 
+        private void Validate(RequestBook request)
+        {
+            var validator = new RegisterBookValidator();
+            var result = validator.Validate(request);
+            if (!result.IsValid)
+            {
+                var errorMessages = result.Errors.Select(f => f.ErrorMessage).ToList();
+                throw new ErrorOnValidationsException(errorMessages);
 
+                
+            }
 
         }
     }

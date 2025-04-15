@@ -1,4 +1,5 @@
-﻿using BookstoreManagement.Communication.Responses;
+﻿using BookstoreManagement.Communication.Enums;
+using BookstoreManagement.Communication.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace BookstoreManagement.Application.UseCases.Books.Delete
                     Id = Guid.Parse("fe4fa59a-913a-4f18-be73-139ffd0fdb1f"),
                     Title = "Livro 1",
                     Amount = 10,
-                    Gender = "Action",
+                    Gender = GenderTypes.Music,
                     Price = 10,
                 },
                   new ResponseBook()
@@ -26,7 +27,7 @@ namespace BookstoreManagement.Application.UseCases.Books.Delete
                     Id = Guid.Parse("d2dc1c07-3d1e-4d45-9399-846891df63fa"),
                     Title = "Livro 2",
                     Amount = 1,
-                    Gender = "fiction",
+                    Gender = GenderTypes.Western,
                     Price = 100,
                 },
 
